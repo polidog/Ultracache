@@ -43,7 +43,7 @@ class Ultracache {
 	/**
 	 * キャッシュを取得する
 	 * @param int $key キャッシュのキー
-	 * @param boolean $saveLocalCache ローカル側に記録するかどうかのキャッシュ
+	 * @param boolean $isServerOnlay サーバ側からのみデータを強制的に取得するフラグ
 	 * @return type
 	 */
 	public function get($key, $isServerOnlay = false) {
