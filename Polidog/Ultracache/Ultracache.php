@@ -11,13 +11,13 @@ class Ultracache {
 
 	/**
 	 * Server側のキャッシュライブラリ
-	 * @var Ultracache\Cache\Server
+	 * @var Polidog\Ultracache\Driver\Driver
 	 */
-	protected $Server;
+	protected $Remote;
 
 	/**
 	 * ローカル側のキャッシュ来bら裏
-	 * @var Ultracache\Cache\Local\Local
+	 * @var Polidog\Ultracache\Driver\Driver
 	 */
 	protected $Local;
 
@@ -36,7 +36,7 @@ class Ultracache {
 	public function __construct(array $config) {
 
 		// ドライバの選択
-		$this->Server = $this->createDriver($config, 'server');
+		$this->Remote = $this->createDriver($config, 'remote');
 		$this->Local = $this->createDriver($config, 'local');
 	}
 
@@ -50,13 +50,13 @@ class Ultracache {
 
 		if ($isServerOnlay) {
 			// サーバーからのみ取得する場合
-			return $this->Server->get($key);
+			return $this->Remote->get($key);
 		}
 
 		$data = $this->Local->get($key);
 		if (!$data) {
 			// データが取得できない場合は別サーバから取得する
-			$data = $this->Server->get($key);
+			$data = $this->Remote->get($key);
 			if (!$data) {
 				// サーバからデータが取れない場合はローカルのデータを消す
 				$this->Local->delete($key);
@@ -92,7 +92,7 @@ class Ultracache {
 		$data['store'] = $value;
 		$data['limit_time'] = time() * $expr;
 		$data['sync_time'] = time();
-		$ret = $this->Server->set($key, $data, $expr);
+		$ret = $this->Remote->set($key, $data, $expr);
 		if ($ret && $isServerOnly == false) {
 			$ret = $this->Local->set($key, $data, $expr);
 		}
@@ -104,7 +104,7 @@ class Ultracache {
 	 * @param type $key
 	 */
 	public function delete($key) {
-		$this->Server->delete($key);
+		$this->Remote->delete($key);
 		$this->Local->delete($key);
 	}
 
@@ -114,7 +114,7 @@ class Ultracache {
 	 * @return boolean
 	 */
 	public function sync($key) {
-		$data = $this->Server->get($key);
+		$data = $this->Remote->get($key);
 		if (!$data) {
 			$this->Local->delete($key);
 			return true;
@@ -130,7 +130,7 @@ class Ultracache {
 					$this->Local->set($key, $data);
 
 					// synctimeの更新
-					$this->Server->set($key, $data);
+					$this->Remote->set($key, $data);
 				}
 				return true;
 			}

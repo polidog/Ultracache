@@ -20,7 +20,7 @@ spl_autoload_register('autoload');
 
 // ここからテスト
 $config = array(
-	'server'	=> array(
+	'remote'	=> array(
 		'Memcached' => array(
 			'servers' => array(
 				array('localhost',11211),
@@ -28,7 +28,7 @@ $config = array(
 		),
 	),
 	'local'		=> array(
-		'Apc' => array(),
+		'Apc' => array(), // 別に設定は特になし、でも空配列じゃないとだめだよー
 	),
 );
 
@@ -36,7 +36,7 @@ try {
 	$cache = new Polidog\Ultracache\Ultracache($config);
 	$cache->set('test','cachetest');
 	var_dump($cache->get('test'));
-	
+
 } catch (Polidog\Ultracache\Exception\NosupportDriverException $noe ) {
 	echo $noe->getMessage();
 	echo "\n";
