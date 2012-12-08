@@ -81,7 +81,7 @@ class Ultracache {
 		else {
 			// sync timeが超えてたらsyncする
 			$checkSyncType = $time + $this->syncTrigerTime;
-			if ( $data['sync_type'] >= $checkSyncType ) {
+			if ( $data['sync_time'] >= $checkSyncType ) {
 				// チェック期限がすぎてたら
 				$data = $this->sync($key);
 			}
