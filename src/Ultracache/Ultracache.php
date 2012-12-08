@@ -160,7 +160,12 @@ class Ultracache {
 			return false;
 		}
 		reset($config[$type]);
+		
 		$className = key($config[$type]);
+		if ( $className == 'Driver' ) {
+			throw new Exception\NosupportDriverException('driver is no suppot');
+		}
+		
 		$c = __NAMESPACE__.'\\Driver\\'.$className;
 		$object = new $c($config[$type][$className]);
 		if ($object->isSuppoeted()) {
