@@ -41,12 +41,26 @@ Usage
 使い方は至って簡単。
 
 	<?php
+	require __DIR__ . '/../vendor/autoload.php';
+	$config = array(
+		'remote'	=> array( // リモート側
+			'Memcached' => array(
+				'servers' => array(
+					array('localhost',11211), // memcachedのサーバ設定とおなじ
+				),
+			),
+		),
+		'local'		=> array( // AP側(実行しているPHPの鯖)
+			'Apc' => array(), // 別に設定は特になし、でも空配列じゃないとだめだよー
+		),
+	);
+	
 	try { 
-		$cache = new Polidog\Ultracache\Ultracache($config);
-		$cache->set('test','cachetest');
-		var_dump($cache->get('test'));
+		$cache = new Ultracache\Ultracache($config);
+		$cache->set('test','cachetest'); // キャッシュをセット
+		var_dump($cache->get('test')); // キャッシュをゲット
 
-	} catch (Polidog\Ultracache\Exception\NosupportDriverException $noe ) {
+	} catch (Ultracache\Exception\NosupportDriverException $noe ) {
 		echo $noe->getMessage();
 		echo "\n";
 	}
