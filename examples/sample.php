@@ -11,13 +11,14 @@ $config = array(
 		),
 	),
 	'local'		=> array(
-		'Apc' => array(), // 別に設定は特になし、でも空配列じゃないとだめだよー
+		'Onetime' => array(), // 別に設定は特になし、でも空配列じゃないとだめだよー
 	),
 );
 
 try { 
 	$cache = new Ultracache\Ultracache($config);
 	$cache->set('test','cachetest');
+	echo $cache->get('test')."\n";
 
 } catch (Ultracache\Exception\NosupportDriverException $noe ) {
 	echo $noe->getMessage();

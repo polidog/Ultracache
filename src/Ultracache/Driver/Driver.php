@@ -1,6 +1,7 @@
 <?php
 
 namespace Ultracache\Driver;
+use Ultracache\Exception;
 
 /**
  * キャッシュ用ドライバーの抽象化クラス
