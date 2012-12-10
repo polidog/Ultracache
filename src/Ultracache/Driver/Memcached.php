@@ -6,7 +6,7 @@ namespace Ultracache\Driver;
  * @author polidog <polidog@gmail.com>
  * @version 0.1
  */
-class Memcached extends Driver
+class Memcached extends AbstractDriver
 {
 	
 	private $Memcached;

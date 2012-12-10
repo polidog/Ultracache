@@ -8,7 +8,7 @@ use Ultracache\Exception;
  * @author polidog <polidog@gmail.com>
  * @version 0.1
  */
-Abstract Class Driver {
+Abstract Class AbstractDriver {
 
 	protected $config;
 

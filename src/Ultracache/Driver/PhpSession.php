@@ -5,7 +5,7 @@ namespace Ultracache\Driver;
  * PHPSession用のドライバ
  * @author polidog <polidogs@gmail.com>
  */
-class PhpSession extends Driver
+class PhpSession extends AbstractDriver
 {
 	protected function init(array $config) {
 		;

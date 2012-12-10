@@ -7,7 +7,7 @@ namespace Ultracache\Driver;
  * @author polidog <polidogs@gmail.com>
  * @version 0.1
  */
-class Apc extends Driver {
+class Apc extends AbstractDriver {
 
 	/**
 	 * 初期処理

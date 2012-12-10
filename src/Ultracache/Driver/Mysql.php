@@ -6,7 +6,7 @@ namespace Ultracache\Driver;
  * スキーマ構造はkey,valueでいいかね
  * @author polidog <polidogs@gmail.com>
  */
-class Mysql extends Driver {
+class Mysql extends AbstractDriver {
 	
 	/**
 	 * @var \mysqli

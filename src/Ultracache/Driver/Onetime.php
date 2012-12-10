@@ -5,7 +5,7 @@ namespace Ultracache\Driver;
  * 1リクエストの間のみにデータが保持されるドライバ
  * @author polidog <polidogs@gmail.com>
  */
-class Onetime extends Driver
+class Onetime extends AbstractDriver
 {
 	
 	private static $storage = null;
