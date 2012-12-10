@@ -37,15 +37,31 @@ class Memcached extends AbstractDriver
 		return true;
 	}
 	
-	
+	/**
+	 * キャッシュを取得する
+	 * @param string $key
+	 * @return array
+	 */
 	public function get($key) {
 		return $this->Memcached->get($key);
 	}
 	
+	/**
+	 * キャッシュをセットする
+	 * @param string $key
+	 * @param mixed $value
+	 * @param int $expier
+	 * @return boolean
+	 */
 	public function set($key, $value, $exper = null) {
 		return $this->Memcached->set($key,$value,$exper);
 	}
 	
+	/**
+	 * キャッシュを削除する
+	 * @param string $key
+	 * @return boolean
+	 */
 	public function delete($key) {
 		return $this->Memcached->delete($key);
 	}

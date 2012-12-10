@@ -24,14 +24,31 @@ class Apc extends AbstractDriver {
 		return true;
 	}
 
+	/**
+	 * キャッシュを取得する
+	 * @param string $key
+	 * @return array
+	 */
 	public function get($key) {
 		return apc_fetch($key);
 	}
 
+	/**
+	 * キャッシュをセットする
+	 * @param string $key
+	 * @param mixed $value
+	 * @param int $expier
+	 * @return boolean
+	 */
 	public function set($key, $value, $expier = null) {
 		return apc_store($key, $value, $expier);
 	}
 
+	/**
+	 * キャッシュを削除する
+	 * @param string $key
+	 * @return boolean
+	 */
 	public function delete($key) {
 		return apc_delete($key);
 	}
