@@ -1,4 +1,16 @@
 {
+	"name": "polidog/ultracache",
+	"description": "PHP Cache Library",
+	"keywords" : ["cache"],
+	"homepage" : "https://github.com/polidog/Ultracache",
+	"license"  : "MIT",
+	"authors": [
+		{
+			"name": "polidog",
+			"email": "polidogs@gmail.com",
+			"homepage": "http://www.polidog.jp"
+		}
+	],	
     "require": {
         "php": ">=5.3.3"
     },
