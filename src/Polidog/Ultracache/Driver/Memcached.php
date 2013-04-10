@@ -1,5 +1,5 @@
 <?php
-namespace Ultracache\Driver;
+namespace Polidog\Ultracache\Driver;
 
 /**
  * memcachedサポートのクラス

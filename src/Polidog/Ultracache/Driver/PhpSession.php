@@ -1,6 +1,6 @@
 <?php
 
-namespace Ultracache\Driver;
+namespace Polidog\Ultracache\Driver;
 
 /**
  * PHPSession用のドライバ

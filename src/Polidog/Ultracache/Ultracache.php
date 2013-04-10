@@ -1,9 +1,9 @@
 <?php
 
-namespace Ultracache;
+namespace Polidog\Ultracache;
 
-use Ultracache\Driver;
-use Ultracache\Exception;
+use Polidog\Ultracache\Driver;
+use Polidog\Ultracache\Exception;
 
 /**
  * ウルトラキャッシュ

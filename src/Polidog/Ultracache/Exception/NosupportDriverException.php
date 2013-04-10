@@ -1,6 +1,6 @@
 <?php
 
-namespace Ultracache\Exception;
+namespace Polidog\Ultracache\Exception;
 
 /**
  * Ultracache用のException

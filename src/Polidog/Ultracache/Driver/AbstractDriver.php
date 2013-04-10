@@ -1,7 +1,7 @@
 <?php
 
-namespace Ultracache\Driver;
-use Ultracache\Exception;
+namespace Polidog\Ultracache\Driver;
+use Polidog\Ultracache\Exception\NosupportDriverException;
 
 /**
  * キャッシュ用ドライバーの抽象化クラス

@@ -1,6 +1,7 @@
 <?php
 require __DIR__ . '/../vendor/autoload.php';
-
+use Polidog\Ultracache\Ultracache;
+use Polidog\Ultracache\Exception\NosupportDriverException;
 // 設定
 $config = array(
 	'remote'	=> array(
@@ -16,11 +17,11 @@ $config = array(
 );
 
 try { 
-	$cache = new Ultracache\Ultracache($config);
+	$cache = new Ultracache($config);
 	$cache->set('test','cachetest');
 	echo $cache->get('test')."\n";
 
-} catch (Ultracache\Exception\NosupportDriverException $noe ) {
+} catch (NosupportDriverException $noe ) {
 	echo $noe->getMessage();
 	echo "\n";
 }
